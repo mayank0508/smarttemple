@@ -1,0 +1,10 @@
+const MyContract = artifacts.require("MyContract");
+
+contract("MyContract", (accounts) => {
+  it("should set and get the number correctly", async () => {
+    const instance = await MyContract.deployed();
+    await instance.setNumber(42);
+    const result = await instance.getNumber();
+    assert.equal(result, 42, "The number was not set correctly.");
+  });
+});
